@@ -7,29 +7,33 @@
 </head>
 
 <body>
-
+  
   <% include partials/navigation %>
   <div class="container p-4">
     <form method="POST" action="/new-entry" class="card card-body">
- 
+
+      <div class="form-group">
+        <input style="display: none" value="<%= articulo.id %>" name="id" type="text" class="form-control" placeholder="Entry a New Title" autofocus required>
+      </div> 
+
       <div class="form-group">
         <label for="title">Title</label>
-        <input name="title" type="text" class="form-control" placeholder="Entry a New Title" autofocus required>
+        <input  value="<%= articulo.title %>" name="title" type="text" class="form-control" placeholder="Entry a New Title" autofocus required>
       </div>
 
       <div class="form-group">
         <label for="title">Author</label>
-        <input name="author" type="text" class="form-control" placeholder="Author" autofocus required>
+        <input value="<%= articulo.author %>"  name="author" type="text" class="form-control" placeholder="Author" autofocus required>
       </div>
       
       <div class="form-group">
         <label for="image">Image</label>
-        <input type="url" name="image" class="form-control" placeholder="http://website.com" required>
+        <input value="<%= articulo.image %>"  type="url" name="image" class="form-control" placeholder="http://website.com" required>
       </div>
-
+ 
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" name="description" required></textarea>
+        <textarea  class="form-control" name="description" required><%= articulo.description %></textarea>
       </div>
 
       <div class="form-group">

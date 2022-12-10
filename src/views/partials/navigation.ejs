@@ -1,19 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container p-2">
         <a class="navbar-brand" href="/">Blog Tecnologia</a>
+        <input id="palabra" type="text" name="image" class="form-control" placeholder="Busqueda por titulos" required>
+        <input type="submit" value="Buscar" onclick="enviar()" class="btn btn-primary">
+         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+               
                 <li class="nav-item">
                     <a class="nav-link" href="/">Articulos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/new-entry">Administracion</a>
+                    <a class="nav-link" href="/admin">Administracion</a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function enviar() {
+             elem = document.getElementById('palabra');
+             window.location.replace("/buscar/"+elem.value);   
+
+        }
+    </script>
 </nav>

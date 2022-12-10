@@ -11,6 +11,11 @@
   <%include partials/navigation%>
 
   <div class="container p-4">
+
+    <a href="/new-entry" class="btn btn-info btn-block">
+      Crear Articulo
+    </a>
+
     <div class="row">
 
     <%if (articulos.length > 0) {%>
@@ -30,6 +35,10 @@
           <a href="/delete/<%= articulo.id %>" class="btn btn-danger btn-block">
             Delete
           </a>
+
+          <a href="/editar/<%= articulo.id %>" class="btn btn-info btn-block">
+            Editar
+          </a>
         </div>
       </div>
     </div>
@@ -39,7 +48,7 @@
 
     <%} else {%>
     <div class="card card-body text-center">
-      <p>No articulos yet. <a href="/new-entry">Add A New One</a></p>
+      <p>No existen articulos. <a href="/new-entry">Crea un articulo</a></p>
     </div>
     <%}%>
     </div>
