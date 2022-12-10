@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/header %>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <%include partials/navigation%>
+
+  <div class="container p-4">
+    <div class="row">
+
+    <%if (articulos.length > 0) {%>
+
+    <% articulos.forEach(function(articulo) { %>
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <%= articulo.title %>
+        </div>
+        <img class="card-img-top" src="<%= articulo.image %>">
+        <div class="card card-body text">
+          <%= articulo.description %>
+        </div>
+        <div class="card-footer">
+          <a href="/delete/<%= articulo.id %>" class="btn btn-danger btn-block">
+            Delete
+          </a>
+        </div>
+      </div>
+    </div>
+    
+
+    <%})%>
+
+    <%} else {%>
+    <div class="card card-body text-center">
+      <p>No articulos yet. <a href="/new-entry">Add A New One</a></p>
+    </div>
+    <%}%>
+    </div>
+  </div>
+
+</body>
+
+</html>

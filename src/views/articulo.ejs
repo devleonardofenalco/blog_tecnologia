@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/header %>
+  <title>New articulo</title>
+</head>
+
+<body>
+
+  <% include partials/navigation %>
+
+  <div class="container p-4">
+    <div class="media">
+      <img src="<%= articulo.image %>" class="align-self-start mr-3 card-leer" alt="...">
+      <div class="media-body">
+        <h2 class="mt-0"><%= articulo.title %></h2>
+        <p><%= articulo.description %></p>
+      </div> 
+    </div>
+  </div>
+
+  <% include partials/footer%>
+</body>
+
+</html>
