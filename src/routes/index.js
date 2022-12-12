@@ -49,7 +49,7 @@ router.get('/new-entry', (req, res) => {
 router.post('/new-entry', (req, res) => {
 
   const { title, author, image, description } = req.body;
-
+ 
   articulos = JSON.parse(fs.readFileSync('src/articulos.json', 'utf-8')); 
   
   id_ = uuidv4();
