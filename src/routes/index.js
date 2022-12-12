@@ -50,16 +50,15 @@ router.post('/new-entry', (req, res) => {
 
   const { title, author, image, description } = req.body;
 
-  console.log("ID :: ",req.body.id)
+  articulos = JSON.parse(fs.readFileSync('src/articulos.json', 'utf-8')); 
   
   id_ = uuidv4();
   if (req.body.id!=undefined){
     id_ = req.body.id;
     articulos = articulos.filter(articulo => articulo.id != id_);
     // saving data 
-    json_articulos = JSON.stringify(articulos);
-    fs.writeFileSync('src/articulos.json', json_articulos, 'utf-8');
-    
+    //json_articulos = JSON.stringify(articulos);
+    fs.writeFileSync('src/articulos.json', JSON.stringify(articulos), 'utf-8');
   }
 
   if (!title || !author || !image || !description) {
@@ -74,13 +73,14 @@ router.post('/new-entry', (req, res) => {
     image,
     description
   };
+  articulos = JSON.parse(fs.readFileSync('src/articulos.json', 'utf-8')); 
 
   // add a new articulo to the array
   articulos.push(newarticulo);
 
   // saving the array in a file
-  const json_articulos = JSON.stringify(articulos);
-  fs.writeFileSync('src/articulos.json', json_articulos, 'utf-8');
+  //const json_articulos = JSON.stringify(articulos);
+  fs.writeFileSync('src/articulos.json', JSON.stringify(articulos), 'utf-8');
   
   articulos = JSON.parse(fs.readFileSync('src/articulos.json', 'utf-8')); 
   res.redirect('/'); 
